@@ -11,27 +11,27 @@
 #include <cmath>
 #include <Windows.h>
 
-const int N = 50; //количество пикселей для случайной генерации данных
-const int KK = 10; //количество кластеров
-const int max_iterations = 100; //максимальное количество итераций
+const int N = 50; //РєРѕР»РёС‡РµСЃС‚РІРѕ РїРёРєСЃРµР»РµР№ РґР»СЏ СЃР»СѓС‡Р°Р№РЅРѕР№ РіРµРЅРµСЂР°С†РёРё РґР°РЅРЅС‹С…
+const int KK = 10; //РєРѕР»РёС‡РµСЃС‚РІРѕ РєР»Р°СЃС‚РµСЂРѕРІ
+const int max_iterations = 100; //РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РёС‚РµСЂР°С†РёР№
 
-typedef struct {            //пиксель
+typedef struct {            //РїРёРєСЃРµР»СЊ
 	double r;
 	double g;
 	double b;
 } rgb;
 
-void form_an_image(std::ostream & st); //функция записи в файл 
-                                       //каждого пикселя
+void form_an_image(std::ostream & st); //С„СѓРЅРєС†РёСЏ Р·Р°РїРёСЃРё РІ С„Р°Р№Р» 
+                                       //РєР°Р¶РґРѕРіРѕ РїРёРєСЃРµР»СЏ
 
 class K_means
 {
 private:
-	std::vector<rgb> pixcel; //вектор пикселей
-	int q_klaster;           //количество кластеров
-	int k_pixcel;            //количество пикселей
-	std::vector<rgb> centr;  //центры кластеризации
-	void identify_centers(); //метод случайного выбора начальных центров
+	std::vector<rgb> pixcel; //РІРµРєС‚РѕСЂ РїРёРєСЃРµР»РµР№
+	int q_klaster;           //РєРѕР»РёС‡РµСЃС‚РІРѕ РєР»Р°СЃС‚РµСЂРѕРІ
+	int k_pixcel;            //РєРѕР»РёС‡РµСЃС‚РІРѕ РїРёРєСЃРµР»РµР№
+	std::vector<rgb> centr;  //С†РµРЅС‚СЂС‹ РєР»Р°СЃС‚РµСЂРёР·Р°С†РёРё
+	void identify_centers(); //РјРµС‚РѕРґ СЃР»СѓС‡Р°Р№РЅРѕРіРѕ РІС‹Р±РѕСЂР° РЅР°С‡Р°Р»СЊРЅС‹С… С†РµРЅС‚СЂРѕРІ
 	inline double compute(rgb k1, rgb k2)
 	{
 		return sqrt(pow((k1.r - k2.r),2) + pow((k1.g - k2.g), 2) + pow((k1.b - k2.b), 2));
@@ -40,13 +40,13 @@ private:
 		return (a + b) / 2;
 	};
 public:
-	K_means() : q_klaster(0), k_pixcel(0) {}; //конструкторы
+	K_means() : q_klaster(0), k_pixcel(0) {}; //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹
 	K_means(int n, rgb *mas, int n_klaster);
 	K_means(int n_klaster, std::istream & os);
-	void clustering(std::ostream & os); //метод кластерезации
-	void print()const; //метод вывода
+	void clustering(std::ostream & os); //РјРµС‚РѕРґ РєР»Р°СЃС‚РµСЂРµР·Р°С†РёРё
+	void print()const; //РјРµС‚РѕРґ РІС‹РІРѕРґР°
 	~K_means();
-	friend std::ostream & operator<<(std::ostream & os, const K_means & k); //перегружений оператор << 
+	friend std::ostream & operator<<(std::ostream & os, const K_means & k); //РїРµСЂРµРіСЂСѓР¶РµРЅРёР№ РѕРїРµСЂР°С‚РѕСЂ << 
 	};
 
 #endif // !K_MEANS_H_
