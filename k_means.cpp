@@ -54,7 +54,7 @@ K_means::K_means(int n_klaster, std::istream & os) : q_klaster(n_klaster)
 
 void K_means::clustering(std::ostream & os)
 {
-	os << "\n\nÍà÷àëî êëàñòåðèçàöèè:" << std::endl;
+	os << "\n\nÐÐ°Ñ‡Ð°Ð»Ð¾ ÐºÐ»Ð°ÑÑ‚ÐµÑ€Ð¸Ð·Ð°Ñ†Ð¸Ð¸:" << std::endl;
 
 	std::vector<int> check_1(k_pixcel, -1);
 	std::vector<int> check_2(k_pixcel, -2);
@@ -62,7 +62,7 @@ void K_means::clustering(std::ostream & os)
 
 	while(true)
 	{
-		os << "\n\n---------------- Èòåðàöèÿ ¹" 
+		os << "\n\n---------------- Ð˜Ñ‚ÐµÑ€Ð°Ñ†Ð¸Ñ â„–" 
 			<< iter << " ----------------\n\n";
 		{
 			for (int j = 0; j < k_pixcel; j++) {
@@ -70,7 +70,7 @@ void K_means::clustering(std::ostream & os)
 
 				for (int i = 0; i < q_klaster; i++) {
 					*(mas + i) = compute(pixcel[j], centr[i]);
-					os << "Ðàññòîÿíèå îò ïèêñåëÿ " << j << " ê öåíòðó #" 
+					os << "Ð Ð°ÑÑÑ‚Ð¾ÑÐ½Ð¸Ðµ Ð¾Ñ‚ Ð¿Ð¸ÐºÑÐµÐ»Ñ " << j << " Ðº Ñ†ÐµÐ½Ñ‚Ñ€Ñƒ #" 
 						<< i << ": " << *(mas + i) << std::endl;
 				}
 
@@ -82,8 +82,8 @@ void K_means::clustering(std::ostream & os)
 						m_k = i;
 					}
 				}
-				os << "Ìèíèìàëüíîå ðàññòîÿíèå ê öåíòðó #"  << m_k << std::endl;
-				os << "Ïåðåñ÷èòûâàåì öåíòð #" << m_k << ": ";
+				os << "ÐœÐ¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ñ€Ð°ÑÑÑ‚Ð¾ÑÐ½Ð¸Ðµ Ðº Ñ†ÐµÐ½Ñ‚Ñ€Ñƒ #"  << m_k << std::endl;
+				os << "ÐŸÐµÑ€ÐµÑÑ‡Ð¸Ñ‚Ñ‹Ð²Ð°ÐµÐ¼ Ñ†ÐµÐ½Ñ‚Ñ€ #" << m_k << ": ";
 				centr[m_k].r = compute_s(pixcel[j].r, centr[m_k].r);
 				centr[m_k].g = compute_s(pixcel[j].g, centr[m_k].g);
 				centr[m_k].b = compute_s(pixcel[j].b, centr[m_k].b);
@@ -93,13 +93,13 @@ void K_means::clustering(std::ostream & os)
 			}
 
 			int *mass = new int[k_pixcel];
-			os << "\nÏðîâåäåì êëàññèôèêàöèþ ïèêñåëåé: "<< std::endl;
+			os << "\nÐŸÑ€Ð¾Ð²ÐµÐ´ÐµÐ¼ ÐºÐ»Ð°ÑÑÐ¸Ñ„Ð¸ÐºÐ°Ñ†Ð¸ÑŽ Ð¿Ð¸ÐºÑÐµÐ»ÐµÐ¹: "<< std::endl;
 			for (int k = 0; k < k_pixcel; k++) {
 				double *mas = new double[q_klaster];
 
 				for (int i = 0; i < q_klaster; i++) {
 					*(mas + i) = compute(pixcel[k], centr[i]);
-					os << "Ðàññòîÿíèå îò ïèêñåëÿ ¹" << k << " ê öåíòðó #" 
+					os << "Ð Ð°ÑÑÑ‚Ð¾ÑÐ½Ð¸Ðµ Ð¾Ñ‚ Ð¿Ð¸ÐºÑÐµÐ»Ñ â„–" << k << " Ðº Ñ†ÐµÐ½Ñ‚Ñ€Ñƒ #" 
 						<< i << ": " << *(mas + i) << std::endl;
 				}
 
@@ -112,20 +112,20 @@ void K_means::clustering(std::ostream & os)
 					}
 				}
 				mass[k] = m_k;
-				os << "Ïèêñåëü ¹" << k << " áëèæå âñåãî ê öåíòðó #" << m_k << std::endl;
+				os << "ÐŸÐ¸ÐºÑÐµÐ»ÑŒ â„–" << k << " Ð±Ð»Ð¸Ð¶Ðµ Ð²ÑÐµÐ³Ð¾ Ðº Ñ†ÐµÐ½Ñ‚Ñ€Ñƒ #" << m_k << std::endl;
 			}
 
-			os << "\nÌàññèâ ñîîòâåòñòâèÿ ïèêñåëåé è öåíòðîâ: \n";
+			os << "\nÐœÐ°ÑÑÐ¸Ð² ÑÐ¾Ð¾Ñ‚Ð²ÐµÑ‚ÑÑ‚Ð²Ð¸Ñ Ð¿Ð¸ÐºÑÐµÐ»ÐµÐ¹ Ð¸ Ñ†ÐµÐ½Ñ‚Ñ€Ð¾Ð²: \n";
 			for (int i = 0; i < k_pixcel; i++) {
 				os << mass[i] << " ";
 				check_1[i] = *(mass + i);
 			}
 			os << std::endl << std::endl;
 
-			os << "Ðåçóëüòàò êëàñòåðèçàöèè: " << std::endl;
+			os << "Ð ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚ ÐºÐ»Ð°ÑÑ‚ÐµÑ€Ð¸Ð·Ð°Ñ†Ð¸Ð¸: " << std::endl;
 			int itr = KK + 1;
 			for (int i = 0; i < q_klaster; i++) {
-				os << "Êëàñòåð #" << i << std::endl;
+				os << "ÐšÐ»Ð°ÑÑ‚ÐµÑ€ #" << i << std::endl;
 				for (int j = 0; j < k_pixcel; j++) {
 					if (mass[j] == i) {
 						os << pixcel[j].r << " " << pixcel[j].g
@@ -137,7 +137,7 @@ void K_means::clustering(std::ostream & os)
 
 			delete[] mass;
 
-			os << "Íîâûå öåíòðû: \n" ;
+			os << "ÐÐ¾Ð²Ñ‹Ðµ Ñ†ÐµÐ½Ñ‚Ñ€Ñ‹: \n" ;
 			for (int i = 0; i < q_klaster; i++) {
 				os << centr[i].r << " " << centr[i].g
 					<< " " << centr[i].b << " - #" << i << std::endl;
@@ -149,39 +149,39 @@ void K_means::clustering(std::ostream & os)
 		}
 		check_2 = check_1;
 	}
-	os << "\n\nÊîíåö êëàñòåðèçàöèè." << std::endl;
+	os << "\n\nÐšÐ¾Ð½ÐµÑ† ÐºÐ»Ð°ÑÑ‚ÐµÑ€Ð¸Ð·Ð°Ñ†Ð¸Ð¸." << std::endl;
 }
 
 void K_means::print() const
 {
-	std::cout << "Íà÷àëüíûå ïèêñåëè: " << std::endl;
+	std::cout << "ÐÐ°Ñ‡Ð°Ð»ÑŒÐ½Ñ‹Ðµ Ð¿Ð¸ÐºÑÐµÐ»Ð¸: " << std::endl;
 	for (int i = 0; i < k_pixcel; i++) {
 		std::cout << pixcel[i].r << " " << pixcel[i].g
-			<< " " << pixcel[i].b << " - ¹" << i << std::endl;
+			<< " " << pixcel[i].b << " - â„–" << i << std::endl;
 	}
-	std::cout << std::endl << "Ñëó÷àéíûå íà÷àëüíûå öåíòðû êëàñòåðèçàöèè: " << std::endl;
+	std::cout << std::endl << "Ð¡Ð»ÑƒÑ‡Ð°Ð¹Ð½Ñ‹Ðµ Ð½Ð°Ñ‡Ð°Ð»ÑŒÐ½Ñ‹Ðµ Ñ†ÐµÐ½Ñ‚Ñ€Ñ‹ ÐºÐ»Ð°ÑÑ‚ÐµÑ€Ð¸Ð·Ð°Ñ†Ð¸Ð¸: " << std::endl;
 	for (int i = 0; i < q_klaster; i++) {
 		std::cout << centr[i].r << " " << centr[i].g << " "
 			<< centr[i].b << " - #" << i << std::endl;
 	}
-	std::cout << "\nÊîëè÷åñòâî êëàñòåðîâ: " << q_klaster << std::endl;
-	std::cout << "Êîëè÷åñòâî ïèêñåëåé: " << k_pixcel << std::endl;
+	std::cout << "\nÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÐºÐ»Ð°ÑÑ‚ÐµÑ€Ð¾Ð²: " << q_klaster << std::endl;
+	std::cout << "ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¿Ð¸ÐºÑÐµÐ»ÐµÐ¹: " << k_pixcel << std::endl;
 }
 
 std::ostream & operator<<(std::ostream & os, const K_means & k)
 {
-	os << "Íà÷àëüíûå ïèêñåëè: " << std::endl;
+	os << "ÐÐ°Ñ‡Ð°Ð»ÑŒÐ½Ñ‹Ðµ Ð¿Ð¸ÐºÑÐµÐ»Ð¸: " << std::endl;
 	for (int i = 0; i < k.k_pixcel; i++) {
 		os << k.pixcel[i].r << " " << k.pixcel[i].g
-			<< " " << k.pixcel[i].b << " - ¹" << i << std::endl;
+			<< " " << k.pixcel[i].b << " - â„–" << i << std::endl;
 	}
-	os << std::endl << "Ñëó÷àéíûå íà÷àëüíûå öåíòðû êëàñòåðèçàöèè: " << std::endl;
+	os << std::endl << "Ð¡Ð»ÑƒÑ‡Ð°Ð¹Ð½Ñ‹Ðµ Ð½Ð°Ñ‡Ð°Ð»ÑŒÐ½Ñ‹Ðµ Ñ†ÐµÐ½Ñ‚Ñ€Ñ‹ ÐºÐ»Ð°ÑÑ‚ÐµÑ€Ð¸Ð·Ð°Ñ†Ð¸Ð¸: " << std::endl;
 	for (int i = 0; i < k.q_klaster; i++) {
 		os << k.centr[i].r << " " << k.centr[i].g << " "
 			<< k.centr[i].b << " - #" << i << std::endl;
 	}
-	os << "\nÊîëè÷åñòâî êëàñòåðîâ: " << k.q_klaster << std::endl;
-	os << "Êîëè÷åñòâî ïèêñåëåé: " << k.k_pixcel << std::endl;
+	os << "\nÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÐºÐ»Ð°ÑÑ‚ÐµÑ€Ð¾Ð²: " << k.q_klaster << std::endl;
+	os << "ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¿Ð¸ÐºÑÐµÐ»ÐµÐ¹: " << k.k_pixcel << std::endl;
 	return os;
 }
 
