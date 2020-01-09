@@ -1,0 +1,14 @@
+C:\Users\Danyil Korotych\source\repos\K-meansClustering\K-meansClustering\obj\Debug\K-meansClustering.csprojAssemblyReference.cache
+C:\Users\Danyil Korotych\source\repos\K-meansClustering\K-meansClustering\obj\Debug\K-meansClustering.csproj.CoreCompileInputs.cache
+C:\Users\Danyil Korotych\source\repos\K-meansClustering\K-meansClustering\bin\Debug\K-meansClustering.exe.config
+C:\Users\Danyil Korotych\source\repos\K-meansClustering\K-meansClustering\bin\Debug\K-meansClustering.exe
+C:\Users\Danyil Korotych\source\repos\K-meansClustering\K-meansClustering\bin\Debug\K-meansClustering.pdb
+C:\Users\Danyil Korotych\source\repos\K-meansClustering\K-meansClustering\obj\Debug\K-meansClustering.exe
+C:\Users\Danyil Korotych\source\repos\K-meansClustering\K-meansClustering\obj\Debug\K-meansClustering.pdb
+E:\Documents\GitHub\K_means\K-meansClustering\K-meansClustering\bin\Debug\K-meansClustering.exe.config
+E:\Documents\GitHub\K_means\K-meansClustering\K-meansClustering\bin\Debug\K-meansClustering.exe
+E:\Documents\GitHub\K_means\K-meansClustering\K-meansClustering\bin\Debug\K-meansClustering.pdb
+E:\Documents\GitHub\K_means\K-meansClustering\K-meansClustering\obj\Debug\K-meansClustering.csprojAssemblyReference.cache
+E:\Documents\GitHub\K_means\K-meansClustering\K-meansClustering\obj\Debug\K-meansClustering.csproj.CoreCompileInputs.cache
+E:\Documents\GitHub\K_means\K-meansClustering\K-meansClustering\obj\Debug\K-meansClustering.exe
+E:\Documents\GitHub\K_means\K-meansClustering\K-meansClustering\obj\Debug\K-meansClustering.pdb
